@@ -1,0 +1,58 @@
+{
+  "name": "@local/dsh-memory-library",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Per-workspace memory library with rules, tiered retrieval, manual per-chat opt-in, and a slowed forgetting curve.",
+  "license": "MIT",
+  "author": "wafernm-crypto",
+  "homepage": "https://github.com/wafernm-crypto/dsh-memory-library#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wafernm-crypto/dsh-memory-library.git"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "memory",
+    "memory-library",
+    "context",
+    "forgetting-curve"
+  ],
+  "engines": {
+    "dsh": ">=0.2.1-rc.3",
+    "node": ">=20"
+  },
+  "main": "index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/*.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

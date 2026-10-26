@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Memory Library">
+  <defs>
+    <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b6fd4"/>
+      <stop offset="1" stop-color="#1d3f7a"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#cover)"/>
+  <path d="M14 20c0-2.2 1.8-4 4-4h10c2.2 0 4 1.8 4 4v27c0-2.2-1.8-4-4-4H14V20z" fill="#f4f8ff" opacity="0.95"/>
+  <path d="M50 20c0-2.2-1.8-4-4-4H36c-2.2 0-4 1.8-4 4v27c0-2.2 1.8-4 4-4h14V20z" fill="#dce9ff" opacity="0.95"/>
+  <path d="M32 22v25" stroke="#8fb4f2" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M18 26h9M18 31h9M18 36h7M37 26h9M37 31h9M37 36h7" stroke="#6c93d8" stroke-width="1.5" stroke-linecap="round" opacity="0.75"/>
+  <path d="M41 45c5-1 8-4 9-9" stroke="#ffd166" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="2 4"/>
+  <circle cx="41" cy="45" r="3.4" fill="#ffd166"/>
+</svg>

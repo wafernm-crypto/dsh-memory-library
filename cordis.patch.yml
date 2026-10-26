@@ -1,0 +1,13 @@
+- insert:
+    - id: dsh-memory-library
+      name: '@local/dsh-memory-library'
+      config:
+        # 5 GiB default cap for one workspace memory directory.
+        maxStorageBytes: 5368709120
+        # 2-3 consolidation passes per day (24h / 3 = 8h).
+        consolidationsPerDay: 3
+        # Forgetting runs 2.5x slower than the classical Ebbinghaus spacing.
+        slowdown: 2.5
+        captureSubagents: false
+        indexMaxChars: 3500
+        promptMaxChars: 7000
