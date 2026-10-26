@@ -26,6 +26,10 @@
   },
   "main": "index.js",
   "icon": "./icon.svg",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "release:prepare": "node scripts/prepare-release.mjs"
+  },
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",

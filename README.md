@@ -2,6 +2,24 @@
 
 在你手动开启记忆的对话里，把聊天沉淀成本地记忆库，用「标题 → 简介 → 正文」三级结构控制读取量，并按放慢的艾宾浩斯曲线逐步压缩。规则文件只在你确认后才会被写入。默认每个工作区独立；也可以选择与另一个项目**共用**同一套记忆，或**只读接取**老库后继续写新库。
 
+## 安装
+
+```sh
+dsh plugin --profile web add @wafernm/dsh-memory-library
+```
+
+安装后在 Harness 的插件页能看到「记忆图书馆 / Memory Library」。源码仓库根目录仍使用 `@local/...` 便于本地开发；`npm run release:prepare` 会生成 `dist-release/`，其中名称、patch 行和客户端模块 id 会统一替换成发布名。
+
+## 开发与发布
+
+```sh
+npm test
+npm run release:prepare
+npm pack ./dist-release
+```
+
+发布包只包含 `index.js`、`client.js`、`lib/`、`cordis.patch.yml`、`locale/`、`icon.svg`、README、LICENSE、CHANGELOG。
+
 ## 数据放在哪
 
 每个工作区一个目录：`<工作区>/.dsh-memory/`
