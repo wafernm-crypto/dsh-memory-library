@@ -99,9 +99,11 @@ POST /dsh-memory-api/session {sessionId, enabled}
 
 | 模式 | 你可以这样说 | 行为 |
 |---|---|---|
-| 共用 | 「当前项目和 `S:\23_DshMod` 共用记忆库」 | 读写都落到源库：条目、日志、规则、整理全部共用 |
-| 只读 + 新建 | 「只读接取 `S:\23_DshMod` 的 shared 标签、重要度 ≥3、最多 30 条，新记忆写本地」 | 老库只读；当前项目继续写自己的新库 |
+| 共用 | 「当前项目和源工作区 `D:\projects\other-project` 共用记忆库」 | 读写都落到源库：条目、日志、规则、整理全部共用 |
+| 只读 + 新建 | 「只读接取 `D:\projects\other-project` 的 shared 标签、重要度 ≥3、最多 30 条，新记忆写本地」 | 老库只读；当前项目继续写自己的新库 |
 | 完全独立 | 「切回完全独立的记忆库」 | 清空外链，只用本地库；原有本地库保留 |
+
+> 示例里的 `D:\projects\other-project` 只是占位，换成你自己的源工作区路径即可；macOS/Linux 上就是 `/path/to/other-project`。
 
 ### 共用模式
 
@@ -110,7 +112,7 @@ POST /dsh-memory-api/session {sessionId, enabled}
 ```json
 {
   "mode": "shared",
-  "source": "S:\\23_DshMod\\.dsh-memory"
+  "source": "D:\\projects\\other-project\\.dsh-memory"
 }
 ```
 
@@ -130,8 +132,8 @@ POST /dsh-memory-api/session {sessionId, enabled}
 [
   {
     "id": "m-abc123",
-    "label": "23_DshMod",
-    "source": "S:\\23_DshMod\\.dsh-memory",
+    "label": "other-project",
+    "source": "D:\\projects\\other-project\\.dsh-memory",
     "tags": ["shared"],
     "minImportance": 3,
     "limit": 30

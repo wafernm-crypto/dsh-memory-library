@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 — 2026-10-26
+
+- 文档：把示例里的本机路径换成通用的 `D:\projects\other-project` / `/path/to/other-project`，不再包含任何个人电脑目录。
+
 ## 0.1.0 — 2026-10-26
 
 首个公开版本。
