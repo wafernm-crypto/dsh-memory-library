@@ -17,7 +17,7 @@ const out = path.resolve(root, arg('out', 'dist-release'));
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
 
-for (const item of ['index.js', 'client.js', 'lib', 'cordis.patch.yml', 'locale', 'icon.svg', 'README.md', 'LICENSE', 'CHANGELOG.md']) {
+for (const item of ['index.js', 'client.js', 'lib', 'cordis.patch.yml', 'locale', 'icon.svg', 'README.md', 'DESIGN.md', 'LICENSE', 'CHANGELOG.md']) {
   fs.cpSync(path.join(root, item), path.join(out, item), { recursive: true });
 }
 

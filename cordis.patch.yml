@@ -10,4 +10,7 @@
         slowdown: 2.5
         captureSubagents: false
         indexMaxChars: 3500
-        promptMaxChars: 7000
+        promptMaxChars: 4200
+        files:
+          enabled: false
+          confirmOverMb: 100

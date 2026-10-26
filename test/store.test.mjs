@@ -15,6 +15,7 @@ const config = {
   promptMaxChars: 7000,
   journalRetentionDays: 45,
   archiveRetentionDays: 180,
+  files: { enabled: false, confirmOverMb: 100 },
 };
 
 function makeStore() {
@@ -38,6 +39,7 @@ test('writes, injects into the index, searches, and reads an entry', () => {
     assert.equal(store.search('部署').length, 1);
     assert.match(store.read(entry.id), /release\/2026/);
   } finally {
+    store.close();
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
@@ -52,7 +54,9 @@ test('memory is off by default and the opt-in state persists', () => {
     assert.equal(reopened.isSessionEnabled('session-test'), true);
     reopened.setSessionEnabled('session-test', false);
     assert.equal(reopened.isSessionEnabled('session-test'), false);
+    reopened.close();
   } finally {
+    store.close();
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
@@ -71,6 +75,7 @@ test('journals a turn and parses it back', () => {
     assert.equal(blocks.length, 1);
     assert.match(blocks[0].user, /release\/2026/);
   } finally {
+    store.close();
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
@@ -85,6 +90,7 @@ test('an aged entry becomes due, then compresses to summary and archive', () => 
       importance: 2,
     });
     entry.reviewed = new Date(Date.now() - 100 * DAY).toISOString();
+    entry.lastActivated = entry.reviewed;
     store.saveEntry(entry);
     assert.ok(store.dueEntries().some((item) => item.id === entry.id));
 
@@ -94,7 +100,11 @@ test('an aged entry becomes due, then compresses to summary and archive', () => 
 
     store.compressEntry(entry.id, 2);
     assert.equal(store.resolveId(entry.id).level, 2);
+
+    store.compressEntry(entry.id, 4);
+    assert.equal(store.resolveId(entry.id).level, 4);
   } finally {
+    store.close();
     fs.rmSync(root, { recursive: true, force: true });
   }
 });

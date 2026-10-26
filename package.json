@@ -1,9 +1,9 @@
 {
   "name": "@local/dsh-memory-library",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Per-workspace memory library with rules, tiered retrieval, manual per-chat opt-in, and a slowed forgetting curve.",
+  "description": "Per-workspace memory library: readable cards, a rebuildable catalog, active recall, optional shared files, and continuous forgetting.",
   "license": "MIT",
   "author": "wafernm-crypto",
   "homepage": "https://github.com/wafernm-crypto/dsh-memory-library#readme",
@@ -44,6 +44,7 @@
     "locale/*.json",
     "icon.svg",
     "README.md",
+    "DESIGN.md",
     "LICENSE",
     "CHANGELOG.md"
   ],
